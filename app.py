@@ -28,8 +28,8 @@ def home():
 #Endpoint pour lister tous les étudiant
 @app.route('/students', methods=['GET'])
 def get_students():
-    students = db.session.execute(db.select(Student))
-    return jsonify(students), 201
+    students = Student.query.all()
+    return jsonify(list(map(Student.to_dict,students))), 201
     
 
 #Ajouter un nouvel etudiant (methode POST)
@@ -44,7 +44,7 @@ def add_student():
 #Affichier un étudiant sachant son ID
 @app.route('/students/<int:id>', methods=['GET'])
 def get_student(id):
-    student = Student.query.get(id)
+    student = Student.query.get_or_404(id)
     if student:
         return jsonify(student.to_dict())
     return jsonify({'error': 'Etudiant non trouvé'}), 404
@@ -78,6 +78,6 @@ def delete_student(id):
 # Activation des bdd
 if __name__ == '__main__':
     with app.app_context():
-        db.init_app(app)
+        # db.init_app(app)
         db.create_all()
     app.run(debug=True)
