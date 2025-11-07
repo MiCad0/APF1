@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 #Creer l'app flask
 app = Flask(__name__)
 
-#Confi de la BDD
+#Config de la BDD
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///students.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -17,7 +17,7 @@ class Student(db.Model):
     name = db.Column(db.String(100), nullable=False)
     age = db.Column(db.Integer, nullable=False)
 
-
+#Racine de l'API pour verifier que le serveur fonctionne
 @app.route('/')
 def home():
     return 'Hello World!'
