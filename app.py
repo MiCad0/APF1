@@ -17,6 +17,9 @@ class Student(db.Model):
     name = db.Column(db.String(100), nullable=False)
     age = db.Column(db.Integer, nullable=False)
 
+    def to_dict(self):
+        return {'id': self.id, 'name': self.name, 'age': self.age}
+
 #Racine de l'API pour verifier que le serveur fonctionne
 @app.route('/')
 def home():
