@@ -25,12 +25,16 @@ def home():
 #Endpoint pour lister tous les étudiant
 
 #Ajouter un nouvel etudiant (methode POST)
+@app.route('/students', methods=['POST'])
 
 #Affichier un étudiant sachant son ID
+@app.route('/students/<int:id>', methods=['GET'])
 
 #Mettre a jour un etudiant (methode PUT)
+@app.route('/students/<int:id>', methods=['PUT'])
 
 #Supprimer un etudiant (methode DELETE)
+@app.route('/students/<int:id>', methods=['DELETE'])
 
 
 
