@@ -23,6 +23,11 @@ def home():
     return 'Hello World!'
 
 #Endpoint pour lister tous les étudiant
+@app.route('/students', methods=['GET'])
+def get_students():
+    students = db.session.execute(db.select(Student))
+    return jsonify(students), 201
+    
 
 #Ajouter un nouvel etudiant (methode POST)
 
