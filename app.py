@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return '<a href="'+request.path+'students"> Hello World!</a>'
+    return 'Hello World!'
 
 
 if __name__ == '__main__':
