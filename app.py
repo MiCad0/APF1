@@ -22,6 +22,18 @@ class Student(db.Model):
 def home():
     return 'Hello World!'
 
+#Endpoint pour lister tous les étudiant
+
+#Ajouter un nouvel etudiant (methode POST)
+
+#Affichier un étudiant sachant son ID
+
+#Mettre a jour un etudiant (methode PUT)
+
+#Supprimer un etudiant (methode DELETE)
+
+
+
 #Activer mode Debug pour voir les erreur et recharger automatiquement le serveur
 if __name__ == '__main__':
     app.run(debug=True)
