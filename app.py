@@ -75,5 +75,9 @@ def delete_student(id):
 
 
 #Activer mode Debug pour voir les erreur et recharger automatiquement le serveur
+# Activation des bdd
 if __name__ == '__main__':
+    with app.app_context():
+        db.init_app(app)
+        db.create_all()
     app.run(debug=True)
